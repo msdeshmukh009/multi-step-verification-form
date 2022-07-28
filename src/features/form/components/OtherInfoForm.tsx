@@ -1,3 +1,4 @@
+import { Button, Form, FormGroup, Label, Input, Container, Col, Row } from "reactstrap";
 import { useAppSelector, useAppDispatch } from "../../../app/hooks";
 import { updateInfo, incrementStage, decrementStage } from "../formSlice";
 
@@ -16,14 +17,42 @@ const OtherInfoForm = () => {
   };
 
   return (
-    <form>
-      <input type="text" name="hobby" value={hobby} onChange={onChangeHandler} />
-      <input type="text" name="otherInfo" value={otherInfo} onChange={onChangeHandler} />
-      <div>
-        <button onClick={() => dispatch(decrementStage())}>Prev</button>
-        <button onClick={() => dispatch(incrementStage())}>Confirmation</button>
-      </div>
-    </form>
+    <Form inline>
+      <FormGroup className="mb-2 me-sm-2 mb-sm-0">
+        <Label className="me-sm-2" for="hobby">
+          Hobby
+        </Label>
+        <Input id="hobby" name="hobby" type="text" value={hobby} onChange={onChangeHandler} />
+      </FormGroup>
+      <FormGroup className="mb-2 me-sm-2 mb-sm-0">
+        <Label className="me-sm-2" for="otherInfo">
+          OtherInfo
+        </Label>
+        <Input
+          id="otherInfo"
+          name="otherInfo"
+          type="text"
+          value={otherInfo}
+          onChange={onChangeHandler}
+        />
+      </FormGroup>
+
+      <Container className="mt-2">
+        <Row>
+          <Col className="text-end">
+            <Button color="primary" onClick={() => dispatch(decrementStage())}>
+              Prev
+            </Button>
+          </Col>
+
+          <Col>
+            <Button color="primary" onClick={() => dispatch(incrementStage())}>
+              Confirmation
+            </Button>
+          </Col>
+        </Row>
+      </Container>
+    </Form>
   );
 };
 
