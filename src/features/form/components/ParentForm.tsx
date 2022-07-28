@@ -9,11 +9,17 @@ import { SubmissionPage } from "./SubmissionPage";
 const ParentForm = () => {
   const { stage } = useAppSelector(state => state.form);
 
-  const headings = ["Login Info", "Address Info", "Other", "", "Thanks for the submission."];
+  const headings = [
+    "Login Info",
+    "Address Info",
+    "Other",
+    "Confirmation",
+    "Thanks for the submission.",
+  ];
 
   return (
-    <main className="min-vh-100 d-flex">
-      <Container className="w-50 m-auto shadow p-4 rounded">
+    <main style={{ maxWidth: "750px" }} className="min-vh-100 m-auto d-flex">
+      <Container className="container-sm m-auto shadow p-4 rounded">
         <h1 className="text-center">{headings[stage]}</h1>
         {stage === 0 && <LoginInfoForm />}
         {stage === 1 && <PersonalInfoForm />}
