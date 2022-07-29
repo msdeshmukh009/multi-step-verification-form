@@ -1,23 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { FormStateType, PayloadType } from "../../types";
 
-type FormState = {
-  stage: number;
-  name: string;
-  email: string;
-  phone: string;
-  city: string;
-  state: string;
-  country: string;
-  occupation: string;
-  otherInfo: string;
-};
-
-type PayloadType = {
-  key: "name" | "email" | "phone" | "city" | "state" | "country" | "occupation" | "otherInfo";
-  value: string;
-};
-
-const initialState: FormState = {
+const initialState: FormStateType = {
   stage: 0,
   name: "",
   email: "",
