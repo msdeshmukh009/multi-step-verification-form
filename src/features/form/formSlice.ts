@@ -8,12 +8,12 @@ type FormState = {
   city: string;
   state: string;
   country: string;
-  hobby: string;
+  occupation: string;
   otherInfo: string;
 };
 
 type PayloadType = {
-  key: "name" | "email" | "phone" | "city" | "state" | "country" | "hobby" | "otherInfo";
+  key: "name" | "email" | "phone" | "city" | "state" | "country" | "occupation" | "otherInfo";
   value: string;
 };
 
@@ -25,7 +25,7 @@ const initialState: FormState = {
   city: "",
   state: "",
   country: "",
-  hobby: "",
+  occupation: "",
   otherInfo: "",
 };
 
@@ -50,7 +50,7 @@ export const formSlice = createSlice({
       state.city = "";
       state.country = "";
       state.state = "";
-      state.hobby = "";
+      state.occupation = "";
       state.otherInfo = "";
     },
   },

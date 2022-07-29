@@ -3,7 +3,7 @@ import { useAppSelector, useAppDispatch } from "../../../app/hooks";
 import { incrementStage, decrementStage } from "../formSlice";
 
 const ConfirmInfo = () => {
-  const { name, email, phone, city, state, country, hobby, otherInfo } = useAppSelector(
+  const { name, email, phone, city, state, country, occupation, otherInfo } = useAppSelector(
     state => state.form
   );
   const dispatch = useAppDispatch();
@@ -45,8 +45,8 @@ const ConfirmInfo = () => {
       <Row className="d-flex gap-4 mt-2 justify-content-center">
         <h3 className="text-center">Other Info</h3>
         <Row>
-          <span className="fw-bold">Hobby:</span>
-          <span>{hobby === "" ? "-" : hobby}</span>
+          <span className="fw-bold">Occupation:</span>
+          <span>{occupation === "" ? "-" : occupation}</span>
         </Row>
         <Row>
           <span className="fw-bold">Other Info:</span>

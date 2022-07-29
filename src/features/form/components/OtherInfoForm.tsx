@@ -3,14 +3,14 @@ import { useAppSelector, useAppDispatch } from "../../../app/hooks";
 import { updateInfo, incrementStage, decrementStage } from "../formSlice";
 
 const OtherInfoForm = () => {
-  const { hobby, otherInfo } = useAppSelector(state => state.form);
+  const { occupation, otherInfo } = useAppSelector(state => state.form);
   const dispatch = useAppDispatch();
 
   const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
 
-    if (name === "hobby") {
-      dispatch(updateInfo({ key: "hobby", value }));
+    if (name === "occupation") {
+      dispatch(updateInfo({ key: "occupation", value }));
     } else {
       dispatch(updateInfo({ key: "otherInfo", value }));
     }
@@ -19,10 +19,16 @@ const OtherInfoForm = () => {
   return (
     <Form inline>
       <FormGroup className="mb-2 me-sm-2 mb-sm-0">
-        <Label className="me-sm-2" for="hobby">
-          Hobby
+        <Label className="me-sm-2" for="occupation">
+          Occupation
         </Label>
-        <Input id="hobby" name="hobby" type="text" value={hobby} onChange={onChangeHandler} />
+        <Input
+          id="occupation"
+          name="occupation"
+          type="text"
+          value={occupation}
+          onChange={onChangeHandler}
+        />
       </FormGroup>
       <FormGroup className="mb-2 me-sm-2 mb-sm-0">
         <Label className="me-sm-2" for="otherInfo">
@@ -31,7 +37,7 @@ const OtherInfoForm = () => {
         <Input
           id="otherInfo"
           name="otherInfo"
-          type="text"
+          type="textarea"
           value={otherInfo}
           onChange={onChangeHandler}
         />
